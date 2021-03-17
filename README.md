@@ -9,7 +9,7 @@ npm run dev
 # or
 yarn dev
 ```
-Type to build the container run
+To build the container run
 
 ```bash
 ./ init
