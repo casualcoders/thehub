@@ -12,7 +12,7 @@ yarn dev
 To build the container run
 
 ```bash
-./ init
+./init -b
 
 ```
 
