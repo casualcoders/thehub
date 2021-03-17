@@ -9,11 +9,11 @@ npm run dev
 # or
 yarn dev
 ```
-Type to build the container
+Type to build the container run
 
 ```bash
-docker build -t client . && docker run --name CLIENT_CONTAINER -p 0.0.0.0:5000:3000 client
+./ init
 
 ```
 
-go to http://localhost:5000
+And then go to http://localhost:3000
