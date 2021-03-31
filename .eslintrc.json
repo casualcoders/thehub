@@ -1,0 +1,60 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/jest/setupAfterEnv.js"]
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "exceptions": ["Component", "ContextProvider"]
+      }
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": "off",
+    "react/no-danger": "off",
+    "react/react-in-jsx-scope": "off",
+    "class-methods-use-this": ["error", { "exceptMethods": ["toReact"] }]
+  },
+  "settings": {
+    "import/core-modules": ["react", "enzyme"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.{js,jsx}"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}
