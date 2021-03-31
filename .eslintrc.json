@@ -24,11 +24,14 @@
     "class-methods-use-this": ["error"]
   },
   "settings": {
-    "import/core-modules": ["react"]
+    "import/core-modules": ["react", "enzyme"]
   },
   "overrides": [
     {
-      "files": ["**/*.test.{js,jsx}"]
+      "files": ["**/*.test.{js,jsx}"],
+      "env": {
+        "jest": true
+      }
     }
   ]
 }
