@@ -6,11 +6,7 @@ module.exports = {
     "stylelint-config-prettier",
     "stylelint-prettier/recommended",
   ],
-  plugins: [
-    "stylelint-order",
-    "stylelint-no-indistinguishable-colors",
-    "stylelint-prettier",
-  ],
+  plugins: ["stylelint-order", "stylelint-prettier"],
   rules: {
     "prettier/prettier": true,
     "selector-class-pattern": "[a-z]+((d)|([A-Z0-9][a-z0-9]+))*([A-Z])?",
@@ -20,7 +16,6 @@ module.exports = {
       { ignore: ["pseudo-classes", "blockless-at-rules"] },
     ],
     "order/properties-alphabetical-order": null,
-    "plugin/stylelint-no-indistinguishable-colors": false,
     "order/order": [
       [
         "custom-properties",
