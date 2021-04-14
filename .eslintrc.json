@@ -10,6 +10,7 @@
     "airbnb",
     "prettier"
   ],
+  "ignorePatterns": ["**/jest/setupAfterEnv.js"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -29,12 +30,7 @@
         "exceptions": ["Component"]
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": ["**/jest/setupAfterEnv.js"]
-      }
-    ],
+    "import/no-extraneous-dependencies": ["error"],
     "class-methods-use-this": ["error"]
   },
   "settings": {
