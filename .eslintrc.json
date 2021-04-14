@@ -2,10 +2,14 @@
   "env": {
     "browser": true,
     "es2020": true,
-    "node": true,
-    "jest/globals": true
+    "node": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "airbnb",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -31,10 +35,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.test.{js,jsx}"],
-      "env": {
-        "jest": true
-      }
+      "files": ["**/*.test.{js,jsx}"]
     }
   ]
 }
