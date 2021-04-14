@@ -15,5 +15,5 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Run test and lint
-      run: npm testAndLint
+      run: npm run testAndLint
 
