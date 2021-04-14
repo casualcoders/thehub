@@ -4,11 +4,7 @@
     "es2020": true,
     "node": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -21,6 +17,12 @@
     "prettier/prettier": "error",
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/jest/setupAfterEnv.js"]
+      }
+    ],
     "class-methods-use-this": ["error"]
   },
   "settings": {
