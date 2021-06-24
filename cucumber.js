@@ -1,3 +1,3 @@
 module.exports = {
-  default: `--format-options '{"theme":{"feature keyword":["magenta","bold"],"scenario keyword":["magenta","bold"],"step keyword":["bold"]}}'`,
+  default: `--format-options '{"snippetInterface": "synchronous"}' --publish-quiet`,
 };
