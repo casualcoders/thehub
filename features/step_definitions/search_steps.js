@@ -13,37 +13,30 @@ Given("I am on the home page", async () => {
 When("I visit the home page", async () => {
   await loadSite();
 });
-When(
-  "I click on the search input form",
-  () =>
-    // Write code here that turns the phrase above into concrete actions
-    "pending",
-);
-When(
-  "type <search input>",
-  () =>
-    // Write code here that turns the phrase above into concrete actions
-    "pending",
-);
-When(
-  "click the submit button",
-  () =>
-    // Write code here that turns the phrase above into concrete actions
-    "pending",
-);
-Then("I can see a search input form", () => {
-  // const form = scope.page.$("form");
-  assert.equal(true, true);
+When("I type {string} into the search input", async (string) => {
+  await scope.page.type('input[type="search"]', string);
 });
-Then(
-  "I can see <search input> has been input into the search field",
-  () =>
-    // Write code here that turns the phrase above into concrete actions
-    "pending",
-);
-Then(
-  "the search form is submitted",
-  () =>
-    // Write code here that turns the phrase above into concrete actions
-    "pending",
-);
+When("click the submit input", async () => {
+  const submitButton = await scope.page.$("input[type='submit']");
+  await submitButton.click();
+  await scope.page.waitForNavigation();
+});
+Then("I can see a search input form", async () => {
+  const form = await scope.page.$("form");
+  const input = await form.$("input[type='search']");
+  assert.strictEqual(!!form, true);
+  assert.strictEqual(!!input, true);
+});
+Then("I can type {string} into the search input", async (string) => {
+  await scope.page.type('input[type="search"]', string);
+  const actual = await scope.page.evaluate(() => {
+    const input = document.querySelector("input[type='search']");
+    return input.value;
+  });
+
+  assert.strictEqual(actual, string);
+});
+Then("I am taken to the {string} page", async (string) => {
+  const pathname = await scope.page.evaluate(() => window.location.pathname);
+  assert.strictEqual(pathname, string);
+});
