@@ -14,9 +14,9 @@ Feature: Search
     When I visit the home page
     Then I can type "test search" into the search input
 
-Scenario: The input form is submittable
-  Given I am a user
-  When I visit the home page
-  And I type "test search" into the search input
-  And click the submit input
-  Then I am taken to the "/s" page
+  Scenario: The input form is submittable
+    Given I am a user
+    When I visit the home page
+    And I type "test search" into the search input
+    And click the submit input
+    Then I am taken to the "/s" page
