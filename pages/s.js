@@ -1,17 +1,41 @@
 import React from "react";
-import client from "../apollo-client";
+import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
 
-import searchCreators from "../http/repositories/creators";
+export default function Results() {
+  const { query } = useRouter();
 
-export default function Results({ creators }) {
+  const CREATORS_QUERY = gql`
+    query CreatorsQuery($name: String!) {
+      creators(name: $name) {
+        name
+        url
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(CREATORS_QUERY, {
+    variables: { name: query.s },
+  });
+
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+
   return (
     <div>
-      <p>No Results Found</p>
-      {JSON.stringify(creators)}
+      {data.creators.length > 0 ? (
+        data.creators.map((item) => (
+          <ul>
+            <li>
+              <a href={item.url} target="_blank" rel="noreferrer">
+                {item.name}
+              </a>
+            </li>
+          </ul>
+        ))
+      ) : (
+        <p>No Results Found</p>
+      )}
     </div>
   );
-}
-
-export async function getStaticProps() {
-  return searchCreators(client);
 }
